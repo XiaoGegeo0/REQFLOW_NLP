@@ -1,9 +1,11 @@
 {
+  "name": "reqflow",
+  "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "eslint .",
     "seed": "node --env-file=.env.local scripts/seed-dummy-users.mjs"
   },
   "dependencies": {
@@ -12,5 +14,9 @@
     "next": "^16.4.2",
     "react": "^19.3.1",
     "react-dom": "^19.3.1"
+  },
+  "devDependencies": {
+    "eslint": "^9.39.5",
+    "eslint-config-next": "^16.4.2"
   }
 }

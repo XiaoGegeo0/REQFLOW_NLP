@@ -6,7 +6,8 @@ import { useRouter } from 'next/navigation'
 import { Check, LogIn } from 'lucide-react'
 import { setRememberMe, supabase } from '../../lib/supabaseClient'
 import AuthLayout from './AuthLayout'
-import { PasswordField, StatusBanner, TextField } from './FormControls'
+import { PasswordField, StatusBanner, TextField } from '../ui/FormControls'
+import ui from '../ui/form.module.css'
 import styles from './auth.module.css'
 
 const REDIRECT_DELAY_MS = 900
@@ -110,7 +111,7 @@ export default function LoginForm() {
 
         <StatusBanner status={status} />
 
-        <button type="submit" className={styles.submit} disabled={loading}>
+        <button type="submit" className={`${ui.button} ${ui.buttonBlock}`} disabled={loading}>
           <LogIn size={16} aria-hidden="true" />
           {loading ? 'Memproses...' : 'Login'}
         </button>

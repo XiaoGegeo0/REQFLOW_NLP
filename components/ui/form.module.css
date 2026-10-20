@@ -1,0 +1,203 @@
+/* Komponen form bersama (auth & halaman aplikasi) — token dari Figma REQFLOW */
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.label {
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.45;
+  color: var(--color-text-muted);
+}
+
+.control {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 14px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.control:focus-within {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(67, 108, 152, 0.15);
+}
+
+.controlInvalid,
+.controlInvalid:focus-within {
+  background: var(--color-error-bg);
+  border-color: var(--color-error);
+}
+
+.controlInvalid:focus-within {
+  box-shadow: 0 0 0 3px rgba(179, 65, 65, 0.15);
+}
+
+.input {
+  flex: 1;
+  min-width: 0;
+  padding: 11px 0;
+  font-size: 12.5px;
+  line-height: 1.45;
+  color: var(--color-text);
+  background: transparent;
+  border: 0;
+  outline: 0;
+}
+
+.input::placeholder {
+  color: var(--color-text-placeholder);
+}
+
+.textarea {
+  min-height: 180px;
+  resize: vertical;
+}
+
+.select {
+  appearance: none;
+  padding-right: 24px;
+  cursor: pointer;
+}
+
+.placeholder {
+  color: var(--color-text-placeholder);
+}
+
+.select option {
+  color: var(--color-text);
+}
+
+.trailingIcon {
+  position: absolute;
+  right: 14px;
+  color: var(--color-text-muted);
+  pointer-events: none;
+}
+
+.iconButton {
+  display: inline-flex;
+  padding: 0;
+  color: var(--color-text-muted);
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+.iconButton:hover {
+  color: var(--color-text);
+}
+
+.fieldFooter {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.hint {
+  margin: 0;
+  font-size: 11px;
+  line-height: 1.45;
+  color: var(--color-text-muted);
+}
+
+.counter {
+  margin-left: auto;
+  font-size: 11px;
+  line-height: 1.45;
+  color: var(--color-text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.counterLimit {
+  color: var(--color-error);
+}
+
+/* Tombol */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 18px;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.45;
+  color: #fff;
+  background: var(--color-primary);
+  border: 0;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.button:hover:not(:disabled) {
+  background: var(--color-primary-hover);
+}
+
+.button:focus-visible {
+  outline: 3px solid rgba(67, 108, 152, 0.35);
+  outline-offset: 2px;
+}
+
+.button:disabled {
+  background: var(--color-text-on-dark);
+  cursor: not-allowed;
+}
+
+.buttonBlock {
+  width: 100%;
+}
+
+/* Banner status (error / sukses) */
+.banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 11px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.45;
+  border-radius: 6px;
+}
+
+.bannerLarge {
+  gap: 10px;
+  padding: 14px 16px;
+  font-size: 16px;
+}
+
+.bannerError {
+  color: var(--color-error);
+  background: var(--color-error-bg);
+}
+
+.bannerSuccess {
+  color: var(--color-success);
+  background: var(--color-success-bg);
+}
+
+.banner svg {
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.bannerLarge svg {
+  margin-top: 2px;
+}
+
+.bannerMessages {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}

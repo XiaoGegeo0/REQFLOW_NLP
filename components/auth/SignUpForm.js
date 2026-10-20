@@ -6,7 +6,8 @@ import { useRouter } from 'next/navigation'
 import { UserPlus } from 'lucide-react'
 import { supabase } from '../../lib/supabaseClient'
 import AuthLayout from './AuthLayout'
-import { PasswordField, StatusBanner, TextField } from './FormControls'
+import { PasswordField, StatusBanner, TextField } from '../ui/FormControls'
+import ui from '../ui/form.module.css'
 import styles from './auth.module.css'
 
 const MIN_PASSWORD_LENGTH = 8
@@ -42,8 +43,14 @@ function validate({ name, email, password, confirmPassword }) {
   return { invalid, messages }
 }
 
+// Email sudah dipakai: error eksplisit (konfirmasi email nonaktif), atau user "palsu"
+// tanpa identities (konfirmasi email aktif — Supabase sengaja tidak mengembalikan error).
+function isEmailTaken({ data, error }) {
+  if (error) return error.code === 'user_already_exists' || error.code === 'email_exists'
+  return data.user?.identities?.length === 0
+}
+
 function signUpErrorMessage(error) {
-  if (error.code === 'user_already_exists' || error.code === 'email_exists') return EMAIL_TAKEN
   if (error.code === 'weak_password') return `Password minimal ${MIN_PASSWORD_LENGTH} karakter.`
   if (error.code === 'over_email_send_rate_limit' || error.status === 429) {
     return 'Terlalu banyak percobaan. Silakan coba lagi beberapa saat lagi.'
@@ -67,27 +74,26 @@ export default function SignUpForm() {
     event.preventDefault()
     if (loading) return
 
-    const result = validate(form)
-    setInvalid(result.invalid)
-    if (result.messages.length > 0) {
-      setStatus({ type: 'error', messages: result.messages })
+    const validation = validate(form)
+    setInvalid(validation.invalid)
+    if (validation.messages.length > 0) {
+      setStatus({ type: 'error', messages: validation.messages })
       return
     }
 
     setStatus(null)
     setLoading(true)
 
-    const { data, error } = await supabase.auth.signUp({
+    const result = await supabase.auth.signUp({
       email: form.email.trim(),
       password: form.password,
       options: { data: { full_name: form.name.trim() } },
     })
+    const { data, error } = result
 
-    // Bila email sudah dipakai dan konfirmasi email aktif, Supabase mengembalikan
-    // user "palsu" tanpa identities alih-alih error.
-    const emailTaken = !error && data.user?.identities?.length === 0
+    const emailTaken = isEmailTaken(result)
     if (error || emailTaken) {
-      setInvalid({ email: error ? error.code === 'user_already_exists' || error.code === 'email_exists' : true })
+      setInvalid({ email: emailTaken })
       setStatus({ type: 'error', messages: [emailTaken ? EMAIL_TAKEN : signUpErrorMessage(error)] })
       setLoading(false)
       return
@@ -113,6 +119,7 @@ export default function SignUpForm() {
           label="Nama Lengkap *"
           name="name"
           autoComplete="name"
+          maxLength={100}
           placeholder="Contoh: Nathanael Kevin"
           value={form.name}
           invalid={invalid.name}
@@ -153,7 +160,7 @@ export default function SignUpForm() {
 
         <StatusBanner status={status} />
 
-        <button type="submit" className={styles.submit} disabled={loading || status?.type === 'success'}>
+        <button type="submit" className={`${ui.button} ${ui.buttonBlock}`} disabled={loading || status?.type === 'success'}>
           <UserPlus size={16} aria-hidden="true" />
           {loading ? 'Memproses...' : 'Daftar'}
         </button>

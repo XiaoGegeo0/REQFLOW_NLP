@@ -1,3 +1,5 @@
+/* Layout halaman Login & Sign Up. Field, tombol, dan banner ada di components/ui/form.module.css. */
+
 .page {
   display: flex;
   min-height: 100vh;
@@ -118,80 +120,6 @@
   gap: 18px;
 }
 
-.field {
-  display: flex;
-  flex-direction: column;
-  gap: 7px;
-}
-
-.label {
-  font-size: 12px;
-  font-weight: 600;
-  line-height: 1.45;
-  color: var(--color-text-muted);
-}
-
-.inputWrap {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 0 14px;
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: 6px;
-  transition: border-color 0.15s, box-shadow 0.15s;
-}
-
-.inputWrap:focus-within {
-  border-color: var(--color-primary);
-  box-shadow: 0 0 0 3px rgba(67, 108, 152, 0.15);
-}
-
-.inputWrapInvalid,
-.inputWrapInvalid:focus-within {
-  background: var(--color-error-bg);
-  border-color: var(--color-error);
-}
-
-.inputWrapInvalid:focus-within {
-  box-shadow: 0 0 0 3px rgba(179, 65, 65, 0.15);
-}
-
-.input {
-  flex: 1;
-  min-width: 0;
-  padding: 11px 0;
-  font-size: 12.5px;
-  line-height: 1.45;
-  background: transparent;
-  border: 0;
-  outline: 0;
-}
-
-.input::placeholder {
-  color: var(--color-text-placeholder);
-}
-
-.iconButton {
-  display: inline-flex;
-  padding: 0;
-  color: var(--color-text-muted);
-  background: none;
-  border: 0;
-  cursor: pointer;
-}
-
-.iconButton:hover {
-  color: var(--color-text);
-}
-
-.hint {
-  margin: 0;
-  font-size: 11px;
-  line-height: 1.45;
-  color: var(--color-text-muted);
-}
-
 /* Remember me + lupa kata sandi */
 .prefs {
   display: flex;
@@ -257,75 +185,6 @@
   cursor: not-allowed;
   opacity: 0.6;
   text-decoration: none;
-}
-
-/* Banner status (error / sukses) */
-.banner {
-  display: flex;
-  align-items: flex-start;
-  gap: 8px;
-  padding: 11px 14px;
-  font-size: 12px;
-  font-weight: 600;
-  line-height: 1.45;
-  border-radius: 6px;
-}
-
-.bannerError {
-  color: var(--color-error);
-  background: var(--color-error-bg);
-}
-
-.bannerSuccess {
-  color: var(--color-success);
-  background: var(--color-success-bg);
-}
-
-.banner svg {
-  flex-shrink: 0;
-  margin-top: 1px;
-}
-
-.bannerMessages {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-/* Tombol utama */
-.submit {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  width: 100%;
-  padding: 12px 18px;
-  font-size: 13px;
-  font-weight: 600;
-  line-height: 1.45;
-  color: #fff;
-  background: var(--color-primary);
-  border: 0;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background 0.15s;
-}
-
-.submit:hover:not(:disabled) {
-  background: var(--color-primary-hover);
-}
-
-.submit:focus-visible {
-  outline: 3px solid rgba(67, 108, 152, 0.35);
-  outline-offset: 2px;
-}
-
-.submit:disabled {
-  opacity: 0.7;
-  cursor: not-allowed;
 }
 
 .separator {
