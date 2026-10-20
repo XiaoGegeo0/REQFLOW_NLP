@@ -1,0 +1,396 @@
+.page {
+  display: flex;
+  min-height: 100vh;
+  background: var(--color-bg);
+}
+
+/* Brand panel (kiri) */
+.brand {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+  flex: 0 0 560px;
+  padding: 64px;
+  background: var(--color-navy);
+  color: #fff;
+}
+
+.logo {
+  position: absolute;
+  top: 64px;
+  left: 64px;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.accent {
+  width: 44px;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--color-accent);
+}
+
+.headline {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+.tagline {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--color-text-on-dark);
+}
+
+.benefits {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 0;
+  padding: 24px 0 0;
+  list-style: none;
+}
+
+.benefit {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 12.5px;
+  line-height: 1.45;
+  color: var(--color-text-on-dark);
+}
+
+.benefit svg {
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* Form panel (kanan) */
+.formPanel {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  padding: 60px 24px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  width: 100%;
+  max-width: 440px;
+  padding: 36px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  box-shadow: var(--shadow-card);
+}
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  line-height: 1.45;
+}
+
+.title {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.subtitle {
+  margin: 0;
+  font-size: 12.5px;
+  color: var(--color-text-muted);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.label {
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.45;
+  color: var(--color-text-muted);
+}
+
+.inputWrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 14px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.inputWrap:focus-within {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(67, 108, 152, 0.15);
+}
+
+.inputWrapInvalid,
+.inputWrapInvalid:focus-within {
+  background: var(--color-error-bg);
+  border-color: var(--color-error);
+}
+
+.inputWrapInvalid:focus-within {
+  box-shadow: 0 0 0 3px rgba(179, 65, 65, 0.15);
+}
+
+.input {
+  flex: 1;
+  min-width: 0;
+  padding: 11px 0;
+  font-size: 12.5px;
+  line-height: 1.45;
+  background: transparent;
+  border: 0;
+  outline: 0;
+}
+
+.input::placeholder {
+  color: var(--color-text-placeholder);
+}
+
+.iconButton {
+  display: inline-flex;
+  padding: 0;
+  color: var(--color-text-muted);
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+.iconButton:hover {
+  color: var(--color-text);
+}
+
+.hint {
+  margin: 0;
+  font-size: 11px;
+  line-height: 1.45;
+  color: var(--color-text-muted);
+}
+
+/* Remember me + lupa kata sandi */
+.prefs {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.checkbox {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12.5px;
+  color: var(--color-text-muted);
+  cursor: pointer;
+}
+
+.checkbox input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.checkboxBox {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  color: #fff;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 3px;
+}
+
+.checkbox input:checked + .checkboxBox {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.checkbox input:focus-visible + .checkboxBox {
+  box-shadow: 0 0 0 3px rgba(67, 108, 152, 0.25);
+}
+
+.checkbox input:not(:checked) + .checkboxBox svg {
+  display: none;
+}
+
+.textLink {
+  padding: 0;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--color-primary);
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+.textLink:hover {
+  text-decoration: underline;
+}
+
+.textLink[aria-disabled='true'] {
+  cursor: not-allowed;
+  opacity: 0.6;
+  text-decoration: none;
+}
+
+/* Banner status (error / sukses) */
+.banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 11px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.45;
+  border-radius: 6px;
+}
+
+.bannerError {
+  color: var(--color-error);
+  background: var(--color-error-bg);
+}
+
+.bannerSuccess {
+  color: var(--color-success);
+  background: var(--color-success-bg);
+}
+
+.banner svg {
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.bannerMessages {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Tombol utama */
+.submit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 12px 18px;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.45;
+  color: #fff;
+  background: var(--color-primary);
+  border: 0;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.submit:hover:not(:disabled) {
+  background: var(--color-primary-hover);
+}
+
+.submit:focus-visible {
+  outline: 3px solid rgba(67, 108, 152, 0.35);
+  outline-offset: 2px;
+}
+
+.submit:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.separator {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 11px;
+  color: var(--color-text-muted);
+}
+
+.separator::before,
+.separator::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--color-border);
+}
+
+.switch {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  font-size: 11.5px;
+  color: var(--color-text-muted);
+}
+
+.switch a {
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.switch a:hover {
+  text-decoration: underline;
+}
+
+/* Layar kecil: brand panel jadi header ringkas */
+@media (max-width: 960px) {
+  .page {
+    flex-direction: column;
+  }
+
+  .brand {
+    flex: none;
+    padding: 28px 24px;
+  }
+
+  .logo {
+    position: static;
+  }
+
+  .tagline,
+  .benefits {
+    display: none;
+  }
+
+  .headline {
+    font-size: 20px;
+  }
+
+  .formPanel {
+    align-items: flex-start;
+    padding: 32px 16px;
+  }
+
+  .card {
+    padding: 28px 22px;
+  }
+}

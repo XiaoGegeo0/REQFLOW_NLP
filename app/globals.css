@@ -1,0 +1,50 @@
+/* Design tokens — diambil dari Figma "REQFLOW — Lo-Fi Wireframe (4)" */
+:root {
+  --color-bg: #f4f6f9;
+  --color-surface: #ffffff;
+  --color-navy: #112534;
+  --color-primary: #436c98;
+  --color-primary-hover: #375a82;
+  --color-accent: #f3e181;
+  --color-border: #dce2e9;
+  --color-text: #112534;
+  --color-text-muted: #5b6b7b;
+  --color-text-placeholder: #8795a3;
+  --color-text-on-dark: #d4e0ec;
+  --color-error: #b34141;
+  --color-error-bg: #fff1f1;
+  --color-success: #1f7a4d;
+  --color-success-bg: #eaf6ef;
+  --shadow-card: 0 2px 6px rgba(17, 37, 52, 0.02);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-inter), 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+button,
+input {
+  font: inherit;
+  color: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
